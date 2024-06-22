@@ -5,20 +5,18 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MyApp());
 }
-
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
-
   @override
   State<MyApp> createState() => _MyAppState();
 }
-
 class _MyAppState extends State<MyApp> {
   int bluenumber = 0;
   int rednumber = 0;
-
   @override
+  
   Widget build(BuildContext context) {
+    
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -35,16 +33,28 @@ class _MyAppState extends State<MyApp> {
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height * 0.5,
-                    color: Colors.blue,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      border: Border.all(color: Colors.white, width: 2),
+                      boxShadow: [
+                           BoxShadow(
+                  color: Colors.blueAccent.withOpacity(0.6),
+                  spreadRadius: 5,
+                  blurRadius: 15,
+                ),
+                        ]),
                     child: Center(
                       child: RotatedBox(
                         quarterTurns: 3,
                         child: Text(
                           bluenumber != 100
                               ? bluenumber.toString()
-                              : 'Blue win',
+                              : ' win',
                           style: TextStyle(
-                              fontSize: 100, fontWeight: FontWeight.bold),
+                              fontSize: 100, fontWeight: FontWeight.bold,shadows: 
+                              [Shadow(color: const Color.fromARGB(255, 240, 241, 242).withOpacity(0.6), blurRadius: 20,)]
+                              ),
+                              
                         ),
                       ),
                     ),
@@ -58,14 +68,25 @@ class _MyAppState extends State<MyApp> {
                   },
                   child: Container(
                     height: MediaQuery.of(context).size.height * 0.5,
-                    color: Colors.red,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      border: Border.all(color: Colors.white, width: 2),
+                      boxShadow: [
+                           BoxShadow(
+                  color: Colors.blueAccent.withOpacity(0.6),
+                  spreadRadius: 5,
+                  blurRadius: 15,
+                ),
+                        ]),
                     child: Center(
                       child: RotatedBox(
                         quarterTurns: 3,
                         child: Text(
-                          rednumber != 100 ? rednumber.toString() : 'Red win',
+                          rednumber != 100 ? rednumber.toString() : ' win',
                           style: TextStyle(
-                              fontSize: 100, fontWeight: FontWeight.bold),
+                              fontSize: 100, fontWeight: FontWeight.bold,
+                              shadows: 
+                              [Shadow(color: const Color.fromARGB(255, 240, 241, 242).withOpacity(0.6), blurRadius: 20,)]),
                         ),
                       ),
                     ),
@@ -74,16 +95,27 @@ class _MyAppState extends State<MyApp> {
               ],
             ),
             Positioned(
-              top: MediaQuery.of(context).size.height * 0.5 - 100,
+              top: MediaQuery.of(context).size.height * 0.5 - 105,
               left: 0,
               child: Container(
                 width: 60,
-                height: 200,
+                height: 210,
                 decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 9, 9, 9),
+                    border: Border.all(color: Colors.white, width: 2),
                     borderRadius: BorderRadius.only(
                         topRight: Radius.circular(30),
-                        bottomRight: Radius.circular(30))),
+                        bottomRight: Radius.circular(30)),
+                        boxShadow: [
+                           BoxShadow(
+                  color: Colors.blueAccent.withOpacity(0.6),
+                  spreadRadius: 5,
+                  blurRadius: 15,
+                ),
+                        ]
+
+
+                        ),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
